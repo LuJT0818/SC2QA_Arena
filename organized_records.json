@@ -1,0 +1,62 @@
+[
+  {
+    "pid": 1,
+    "second": 120,
+    "frame": 1920,
+    "minerals_current": 75,
+    "vespene_current": 0,
+    "workers_active_count": 16,
+    "food_used": 18.0,
+    "food_made": 22.0
+  },
+  {
+    "pid": 1,
+    "second": 300,
+    "frame": 4800,
+    "minerals_current": 205,
+    "vespene_current": 16,
+    "workers_active_count": 34,
+    "food_used": 47.5,
+    "food_made": 52.0
+  },
+  {
+    "pid": 1,
+    "second": 480,
+    "frame": 7680,
+    "minerals_current": 400,
+    "vespene_current": 278,
+    "workers_active_count": 51,
+    "food_used": 78.5,
+    "food_made": 92.0
+  },
+  {
+    "pid": 2,
+    "second": 120,
+    "frame": 1920,
+    "minerals_current": 65,
+    "vespene_current": 52,
+    "workers_active_count": 19,
+    "food_used": 20.0,
+    "food_made": 23.0
+  },
+  {
+    "pid": 2,
+    "second": 300,
+    "frame": 4800,
+    "minerals_current": 250,
+    "vespene_current": 265,
+    "workers_active_count": 32,
+    "food_used": 38.0,
+    "food_made": 54.0
+  },
+  {
+    "pid": 2,
+    "second": 480,
+    "frame": 7680,
+    "minerals_current": 135,
+    "vespene_current": 340,
+    "workers_active_count": 57,
+    "food_used": 74.0,
+    "food_made": 85.0
+  }
+]
