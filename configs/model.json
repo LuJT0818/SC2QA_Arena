@@ -1,0 +1,10 @@
+{
+  "provider": "deepseek",
+  "model_id": "deepseek-chat",
+  "base_url": "https://api.deepseek.com",
+  "api_key_env": "DEEPSEEK_API_KEY",
+  "default_max_tokens": 256,
+  "default_temperature": 1.0,
+  "request_timeout_seconds": 60,
+  "thinking_mode": "non-thinking"
+}
