@@ -1,0 +1,15 @@
+正在加载模型（cuda）...
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   2%|▏         | 5/311 [00:00<00:08, 35.19it/s]Loading weights:   6%|▌         | 18/311 [00:00<00:04, 73.11it/s]Loading weights:  19%|█▉        | 59/311 [00:00<00:01, 190.50it/s]Loading weights:  25%|██▌       | 79/311 [00:00<00:01, 187.15it/s]Loading weights:  32%|███▏      | 99/311 [00:00<00:01, 119.73it/s]Loading weights:  37%|███▋      | 114/311 [00:01<00:02, 91.27it/s]Loading weights:  42%|████▏     | 130/311 [00:01<00:01, 102.64it/s]Loading weights:  55%|█████▌    | 172/311 [00:01<00:01, 134.33it/s]Loading weights:  61%|██████    | 190/311 [00:01<00:00, 132.47it/s]Loading weights:  66%|██████▌   | 205/311 [00:01<00:00, 125.25it/s]Loading weights:  70%|███████   | 218/311 [00:01<00:00, 99.94it/s] Loading weights:  74%|███████▎  | 229/311 [00:02<00:00, 85.43it/s]Loading weights:  77%|███████▋  | 239/311 [00:02<00:00, 72.79it/s]Loading weights:  80%|███████▉  | 248/311 [00:02<00:00, 74.13it/s]Loading weights: 100%|██████████| 311/311 [00:02<00:00, 127.70it/s]
+模型加载完成
+INFO:     Started server process [39696]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8008 (Press CTRL+C to quit)
+INFO:     127.0.0.1:2391 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:2395 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:2399 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:2403 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:2411 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:11501 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:11503 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:11508 - "POST /chat HTTP/1.1" 200 OK

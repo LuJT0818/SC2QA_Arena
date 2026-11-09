@@ -1,0 +1,21 @@
+# 模型权重体积大，不进版本库
+models/
+*.safetensors
+*.gguf
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 本地密钥
+.env
+
+# 系统/编辑器
+.vscode/settings.json
+~$*
+Thumbs.db
+
+.workbuddy/
+MyTest/

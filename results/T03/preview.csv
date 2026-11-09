@@ -1,0 +1,1021 @@
+﻿id,prompt_version,input,reference,answer,seconds,numbers_ok,source_ok,missing_ok,notes
+Q01,direct,"请根据下面的输入回答问题。
+
+
+问题：双方当前矿分别是多少，玩家1减玩家2的差值是多少？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为75，玩家2为65，差值10；S1920。,,0.0,,,,
+Q01,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：双方当前矿分别是多少，玩家1减玩家2的差值是多少？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为75，玩家2为65，差值10；S1920。,,0.0,,,,
+Q01,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：双方当前矿分别是多少，玩家1减玩家2的差值是多少？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为75，玩家2为65，差值10；S1920。,,0.0,,,,
+Q02,direct,"请根据下面的输入回答问题。
+
+
+问题：双方当前气分别是多少，玩家1减玩家2的差值是多少？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为0，玩家2为52，差值-52；S1920。,,0.0,,,,
+Q02,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：双方当前气分别是多少，玩家1减玩家2的差值是多少？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为0，玩家2为52，差值-52；S1920。,,0.0,,,,
+Q02,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：双方当前气分别是多少，玩家1减玩家2的差值是多少？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为0，玩家2为52，差值-52；S1920。,,0.0,,,,
+Q03,direct,"请根据下面的输入回答问题。
+
+
+问题：双方当前矿分别是多少，谁更多，多多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": 265,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": -249,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为205，玩家2为250，玩家2多45；S4800。,,0.0,,,,
+Q03,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：双方当前矿分别是多少，谁更多，多多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": 265,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": -249,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为205，玩家2为250，玩家2多45；S4800。,,0.0,,,,
+Q03,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：双方当前矿分别是多少，谁更多，多多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": 265,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": -249,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为205，玩家2为250，玩家2多45；S4800。,,0.0,,,,
+Q04,direct,"请根据下面的输入回答问题。
+
+
+问题：双方活跃工人数分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": 265,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": -249,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为34，玩家2为32，差值2；S4800。,,0.0,,,,
+Q04,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：双方活跃工人数分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": 265,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": -249,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为34，玩家2为32，差值2；S4800。,,0.0,,,,
+Q04,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：双方活跃工人数分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": 265,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": -249,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为34，玩家2为32，差值2；S4800。,,0.0,,,,
+Q05,direct,"请根据下面的输入回答问题。
+
+
+问题：双方当前气分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为278，玩家2为340，差值-62；S7680。,,0.0,,,,
+Q05,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：双方当前气分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为278，玩家2为340，差值-62；S7680。,,0.0,,,,
+Q05,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：双方当前气分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为278，玩家2为340，差值-62；S7680。,,0.0,,,,
+Q06,direct,"请根据下面的输入回答问题。
+
+
+问题：双方活跃工人数分别是多少，谁更多，多多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为51，玩家2为57，玩家2多6；S7680。,,0.0,,,,
+Q06,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：双方活跃工人数分别是多少，谁更多，多多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为51，玩家2为57，玩家2多6；S7680。,,0.0,,,,
+Q06,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：双方活跃工人数分别是多少，谁更多，多多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为51，玩家2为57，玩家2多6；S7680。,,0.0,,,,
+Q07,direct,"请根据下面的输入回答问题。
+
+
+问题：双方当前气分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": null,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": null,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": true
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为16；玩家2气缺失，无法计算差值；S4800。此题为人为缺失测试。,,0.0,,,,
+Q07,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：双方当前气分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": null,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": null,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": true
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为16；玩家2气缺失，无法计算差值；S4800。此题为人为缺失测试。,,0.0,,,,
+Q07,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：双方当前气分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 4800,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 205,
+      ""vespene_current"": 16,
+      ""workers_active_count"": 34
+    },
+    ""2"": {
+      ""minerals_current"": 250,
+      ""vespene_current"": null,
+      ""workers_active_count"": 32
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": -45,
+    ""vespene_current"": null,
+    ""workers_active_count"": 2
+  },
+  ""source_id"": ""S4800"",
+  ""source"": ""data/processed/organized_records.json，frame=4800，pid=1和2"",
+  ""artificial_missing_test"": true
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1为16；玩家2气缺失，无法计算差值；S4800。此题为人为缺失测试。,,0.0,,,,
+Q08,direct,"请根据下面的输入回答问题。
+
+
+问题：双方活跃工人数分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": null
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": null
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": true
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1活跃工人数缺失；玩家2为57，无法计算差值；S7680。此题为人为缺失测试。,,0.0,,,,
+Q08,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：双方活跃工人数分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": null
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": null
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": true
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1活跃工人数缺失；玩家2为57，无法计算差值；S7680。此题为人为缺失测试。,,0.0,,,,
+Q08,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：双方活跃工人数分别是多少，差值是多少？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": null
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": null
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": true
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",玩家1活跃工人数缺失；玩家2为57，无法计算差值；S7680。此题为人为缺失测试。,,0.0,,,,
+Q09,direct,"请根据下面的输入回答问题。
+
+
+问题：当前矿和当前气是什么？活跃工人数能直接理解为正在采矿的工人数吗？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",当前矿和气是该采样点的资源存量；不能直接把活跃工人数解释为正在采矿的工人数；字段说明N1。,,0.0,,,,
+Q09,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：当前矿和当前气是什么？活跃工人数能直接理解为正在采矿的工人数吗？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",当前矿和气是该采样点的资源存量；不能直接把活跃工人数解释为正在采矿的工人数；字段说明N1。,,0.0,,,,
+Q09,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：当前矿和当前气是什么？活跃工人数能直接理解为正在采矿的工人数吗？
+本次数据：
+{
+  ""game_loop"": 1920,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 75,
+      ""vespene_current"": 0,
+      ""workers_active_count"": 16
+    },
+    ""2"": {
+      ""minerals_current"": 65,
+      ""vespene_current"": 52,
+      ""workers_active_count"": 19
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 10,
+    ""vespene_current"": -52,
+    ""workers_active_count"": -3
+  },
+  ""source_id"": ""S1920"",
+  ""source"": ""data/processed/organized_records.json，frame=1920，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",当前矿和气是该采样点的资源存量；不能直接把活跃工人数解释为正在采矿的工人数；字段说明N1。,,0.0,,,,
+Q10,direct,"请根据下面的输入回答问题。
+
+
+问题：这些数据能证明哪个玩家最后获胜吗？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",不能，现有采样统计不足以确定最终胜者；S7680和N1。,,0.0,,,,
+Q10,rules,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+
+问题：这些数据能证明哪个玩家最后获胜吗？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",不能，现有采样统计不足以确定最终胜者；S7680和N1。,,0.0,,,,
+Q10,examples,"你是 SC2 回放数据助手，请根据下面的输入用中文简短回答。
+1. 数值只使用本次数据；差值使用程序提供的值，方向为玩家1减玩家2。
+2. 区分玩家1和玩家2，注明 game_loop 和来源编号。
+3. null 表示缺失，不能当成零；资料不足时说明缺少什么，不猜测。
+4. 只根据提供的字段说明解释，不根据资源数字猜测胜负或战术。
+5. 输出格式：答案：……；来源：……。
+
+下面是一个来自现有整理表的示例。示例只演示格式，回答时使用本次输入。
+示例输入：game_loop=1920，玩家1矿75，玩家2矿65，差值10，来源S1920。
+示例问题：谁的矿更多？
+示例回答：答案：game_loop=1920时，玩家1矿75，玩家2矿65，玩家1多10；来源：S1920。
+
+
+问题：这些数据能证明哪个玩家最后获胜吗？
+本次数据：
+{
+  ""game_loop"": 7680,
+  ""players"": {
+    ""1"": {
+      ""minerals_current"": 400,
+      ""vespene_current"": 278,
+      ""workers_active_count"": 51
+    },
+    ""2"": {
+      ""minerals_current"": 135,
+      ""vespene_current"": 340,
+      ""workers_active_count"": 57
+    }
+  },
+  ""difference_player1_minus_player2"": {
+    ""minerals_current"": 265,
+    ""vespene_current"": -62,
+    ""workers_active_count"": -6
+  },
+  ""source_id"": ""S7680"",
+  ""source"": ""data/processed/organized_records.json，frame=7680，pid=1和2"",
+  ""artificial_missing_test"": false
+}
+字段说明：N1：minerals_current表示当前矿存量，vespene_current表示当前气存量；workers_active_count表示活跃工人数，不能直接等同于正在采矿的工人数。这里只按game_loop编号标识采样点。单个采样点的这些统计不能证明最终胜者。",不能，现有采样统计不足以确定最终胜者；S7680和N1。,,0.0,,,,

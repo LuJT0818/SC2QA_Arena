@@ -1,41 +1,57 @@
-import json, time
 from pathlib import Path
-from openai import OpenAI
-import os
 
-CONFIG = json.loads(Path("configs/model.json").read_text())
+import torch
+import uvicorn
+from fastapi import FastAPI
+from pydantic import BaseModel, Field
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# 从环境变量读取密钥，避免硬编码
-api_key = os.getenv(CONFIG["api_key_env"])
-api_key = "sk-3b9f5c491c724aedbd688d54e4d485b4"
-if not api_key:
-    raise RuntimeError(f"环境变量 {CONFIG['api_key_env']} 未设置")
 
-client = OpenAI(
-    api_key=api_key,
-    base_url=CONFIG["base_url"],
+# 1. 启动时加载一次模型，后续请求重复使用。
+model_path = Path(__file__).resolve().parent.parent / "models" / "Qwen3-1.7B"
+print(f"正在加载模型：{model_path}", flush=True)
+tokenizer = AutoTokenizer.from_pretrained(str(model_path))
+model = AutoModelForCausalLM.from_pretrained(
+    str(model_path),
+    torch_dtype="auto",
+    device_map="auto",
 )
+model.eval()
+print("模型加载完成", flush=True)
 
-def generate(prompt: str, max_tokens: int | None = None, temperature: float | None = None):
-    """统一推理入口，替代原 FastAPI 的 /chat 端点"""
-    start = time.perf_counter()
-    try:
-        response = client.chat.completions.create(
-            model=CONFIG["model_id"],
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=max_tokens or CONFIG["default_max_tokens"],
-            temperature=temperature if temperature is not None else CONFIG["default_temperature"],
-            timeout=CONFIG["request_timeout_seconds"],
+app = FastAPI()
+
+
+# 2. 约定客户端发来的 JSON 格式。
+class ChatRequest(BaseModel):
+    prompt: str = Field(min_length=1)
+    max_new_tokens: int = Field(default=256, ge=1, le=512)
+
+
+# 3. 收到 POST /chat 请求后，运行一次模型推理。
+@app.post("/chat")
+def chat(request: ChatRequest):
+    messages = [{"role": "user", "content": request.prompt}]
+    text = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True,
+        enable_thinking=False,
+    )
+    model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
+
+    with torch.inference_mode():
+        generated_ids = model.generate(
+            **model_inputs,
+            max_new_tokens=request.max_new_tokens,
+            do_sample=False,  # T03 比较提示时，固定为非随机生成。
         )
-        answer = response.choices[0].message.content
-        elapsed = (time.perf_counter() - start) * 1000
-        return {
-            "answer": answer,
-            "elapsed_ms": round(elapsed, 1),
-            "model_id": response.model,
-        }
-    except Exception as e:
-        return {
-            "error": str(e),
-            "status": type(e).__name__,
-        }
+
+    output_ids = generated_ids[0][len(model_inputs.input_ids[0]):]
+    answer = tokenizer.decode(output_ids, skip_special_tokens=True).strip()
+    return {"answer": answer}
+
+
+# 4. 运行这个文件时，启动本机 HTTP 服务。
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8008)
