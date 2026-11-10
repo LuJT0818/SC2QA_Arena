@@ -1,15 +1,19 @@
 import json
 
 from langchain_core.runnables import RunnableLambda
+from requests.exceptions import RequestException
 
+from answer import generate_answer
+from context import apply_context, clear_session, create_session, prepare_context
 from retrieval import retrieve
-from tools import extract_game_loop, generate_answer, get_stats
+from tools import get_stats
 
 
-def prepare_query(question):
-    # 第一步，复用T04的模型参数提取，建立后续步骤共用的字典。
-    game_loop = extract_game_loop(question)
-    return {"question": question, "game_loop": game_loop}
+def prepare_query(input_data):
+    # 字符串用于单次调用；连续对话传入问题和同一个会话字典。
+    if isinstance(input_data, str):
+        input_data = {"question": input_data, "session": create_session()}
+    return prepare_context(input_data)
 
 
 def query_stats(state):
@@ -21,7 +25,7 @@ def query_stats(state):
 
 
 def retrieve_notes(state):
-    # 第三步，根据原问题检索说明，将结果继续加入字典。
+    # 第三步，根据问题检索说明，将结果继续加入字典。
     state["notes"] = retrieve(state["question"])
     print("检索说明")
     print(json.dumps(state["notes"], ensure_ascii=False, indent=2))
@@ -37,20 +41,44 @@ def write_answer(state):
     )
 
 
-# RunnableLambda把普通函数接入LangChain，竖线按顺序连接步骤。
+# 只在这里定义问答流程，模块提供的函数按顺序连接。
 chain = (
     RunnableLambda(prepare_query)
     | RunnableLambda(query_stats)
+    | RunnableLambda(apply_context)
     | RunnableLambda(retrieve_notes)
     | RunnableLambda(write_answer)
 )
 
 
+def chat(question, session=None):
+    if session is None:
+        session = create_session()
+    return chain.invoke({"question": question, "session": session})
+
+
+def main():
+    session = create_session()
+    print("输入问题开始对话，输入clear清空会话，输入exit退出。")
+    while True:
+        try:
+            question = input("你：").strip()
+        except (EOFError, KeyboardInterrupt):
+            break
+        if question == "exit":
+            break
+        if question == "clear":
+            clear_session(session)
+            print("会话已清空")
+            continue
+        if not question:
+            continue
+        try:
+            answer = chat(question, session)
+            print("助手：", answer)
+        except (ValueError, RequestException) as error:
+            print("提示：", error)
+
+
 if __name__ == "__main__":
-    question = "1920采样点双方当前矿分别是多少？当前矿表示什么？"
-    try:
-        answer = chain.invoke(question)
-        print("最终回答")
-        print(answer)
-    except ValueError as error:
-        print("处理失败", error)
+    main()

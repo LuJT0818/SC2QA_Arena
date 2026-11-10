@@ -1,0 +1,81 @@
+[
+  {
+    "question": "1920采样点玩家1有多少矿？",
+    "session": {
+      "game_loop": 1920,
+      "pid": 1,
+      "metric": [
+        "minerals_current"
+      ]
+    },
+    "answer": "当前矿：75\n\n来源：src/tools.py，get_stats函数中的frame匹配与记录数量检查（N06）",
+    "error": null,
+    "trace": "模型提取的查询参数： {\"game_loop\":1920}\n补齐后的问题 本次查询game_loop=1920，查询对象为玩家1，指标为当前矿。\n请按上述已补齐的条件回答。用户原问题：1920采样点玩家1有多少矿？\n查询结果\n{\n  \"game_loop\": 1920,\n  \"player1\": {\n    \"minerals_current\": 75,\n    \"vespene_current\": 0,\n    \"workers_active_count\": 16\n  },\n  \"player2\": {\n    \"minerals_current\": 65,\n    \"vespene_current\": 52,\n    \"workers_active_count\": 19\n  },\n  \"difference_player1_minus_player2\": {\n    \"minerals_current\": 10,\n    \"vespene_current\": -52,\n    \"workers_active_count\": -3\n  },\n  \"source\": \"organized_records.json，frame=1920，pid=1和2\"\n}\n检索说明\n[\n  {\n    \"id\": \"N06\",\n    \"title\": \"可查询的采样点\",\n    \"text\": \"本项目使用game_loop指定采样点，并与整理表的frame字段匹配。只有该采样点的玩家1和玩家2各有且仅有一条记录时，查询才返回结果。任意一方记录缺失或重复时会报错。\",\n    \"source\": \"src/tools.py，get_stats函数中的frame匹配与记录数量检查\",\n    \"score\": 0.6860705614089966\n  },\n  {\n    \"id\": \"N01\",\n    \"title\": \"当前矿\",\n    \"text\": \"minerals_current表示统计事件发生时玩家当前持有的矿资源数量，回答当前矿或矿量问题时使用这个字段。\",\n    \"source\": \"https://github.com/ggtracker/sc2reader/blob/upstream/sc2reader/events/tracker.py#L73-L74\",\n    \"score\": 0.6787933111190796\n  }\n]\n",
+    "seconds": 2.65
+  },
+  {
+    "question": "另一方呢？",
+    "session": {
+      "game_loop": 1920,
+      "pid": 2,
+      "metric": [
+        "minerals_current"
+      ]
+    },
+    "answer": "当前矿：玩家2当前持有65矿。  \n来源：`src/tools.py，get_stats函数中的frame匹配与记录数量检查`（N06）  \n说明：`minerals_current`字段表示玩家当前持有的矿资源数量，该字段在`organized_records.json`中对应frame=1920的记录（N01）。",
+    "error": null,
+    "trace": "模型提取的查询参数： {\"game_loop\":null}\n补齐后的问题 本次查询game_loop=1920，查询对象为玩家2，指标为当前矿。\n请按上述已补齐的条件回答。用户原问题：另一方呢？\n查询结果\n{\n  \"game_loop\": 1920,\n  \"player1\": {\n    \"minerals_current\": 75,\n    \"vespene_current\": 0,\n    \"workers_active_count\": 16\n  },\n  \"player2\": {\n    \"minerals_current\": 65,\n    \"vespene_current\": 52,\n    \"workers_active_count\": 19\n  },\n  \"difference_player1_minus_player2\": {\n    \"minerals_current\": 10,\n    \"vespene_current\": -52,\n    \"workers_active_count\": -3\n  },\n  \"source\": \"organized_records.json，frame=1920，pid=1和2\"\n}\n检索说明\n[\n  {\n    \"id\": \"N06\",\n    \"title\": \"可查询的采样点\",\n    \"text\": \"本项目使用game_loop指定采样点，并与整理表的frame字段匹配。只有该采样点的玩家1和玩家2各有且仅有一条记录时，查询才返回结果。任意一方记录缺失或重复时会报错。\",\n    \"source\": \"src/tools.py，get_stats函数中的frame匹配与记录数量检查\",\n    \"score\": 0.7212856411933899\n  },\n  {\n    \"id\": \"N01\",\n    \"title\": \"当前矿\",\n    \"text\": \"minerals_current表示统计事件发生时玩家当前持有的矿资源数量，回答当前矿或矿量问题时使用这个字段。\",\n    \"source\": \"https://github.com/ggtracker/sc2reader/blob/upstream/sc2reader/events/tracker.py#L73-L74\",\n    \"score\": 0.67966228723526\n  }\n]\n",
+    "seconds": 4.7
+  },
+  {
+    "question": "他的气呢？",
+    "session": {
+      "game_loop": 1920,
+      "pid": 2,
+      "metric": [
+        "vespene_current"
+      ]
+    },
+    "answer": "当前气：52\n\n来源：organized_records.json，frame=1920，pid=1和2，玩家2的vespene_current字段。",
+    "error": null,
+    "trace": "模型提取的查询参数： {\"game_loop\":null}\n补齐后的问题 本次查询game_loop=1920，查询对象为玩家2，指标为当前气。\n请按上述已补齐的条件回答。用户原问题：他的气呢？\n查询结果\n{\n  \"game_loop\": 1920,\n  \"player1\": {\n    \"minerals_current\": 75,\n    \"vespene_current\": 0,\n    \"workers_active_count\": 16\n  },\n  \"player2\": {\n    \"minerals_current\": 65,\n    \"vespene_current\": 52,\n    \"workers_active_count\": 19\n  },\n  \"difference_player1_minus_player2\": {\n    \"minerals_current\": 10,\n    \"vespene_current\": -52,\n    \"workers_active_count\": -3\n  },\n  \"source\": \"organized_records.json，frame=1920，pid=1和2\"\n}\n检索说明\n[\n  {\n    \"id\": \"N02\",\n    \"title\": \"当前气\",\n    \"text\": \"vespene_current表示统计事件发生时玩家当前持有的高能瓦斯资源数量，回答当前气或气量问题时使用这个字段。\",\n    \"source\": \"https://github.com/ggtracker/sc2reader/blob/upstream/sc2reader/events/tracker.py#L76-L77\",\n    \"score\": 0.6630810499191284\n  },\n  {\n    \"id\": \"N06\",\n    \"title\": \"可查询的采样点\",\n    \"text\": \"本项目使用game_loop指定采样点，并与整理表的frame字段匹配。只有该采样点的玩家1和玩家2各有且仅有一条记录时，查询才返回结果。任意一方记录缺失或重复时会报错。\",\n    \"source\": \"src/tools.py，get_stats函数中的frame匹配与记录数量检查\",\n    \"score\": 0.6335107684135437\n  }\n]\n",
+    "seconds": 2.55
+  },
+  {
+    "question": "4800采样点双方的矿分别是多少？",
+    "session": {
+      "game_loop": 4800,
+      "pid": "both",
+      "metric": [
+        "minerals_current"
+      ]
+    },
+    "answer": "玩家1当前矿：205  \n玩家2当前矿：250  \n来源：src/tools.py，get_stats函数中的frame匹配与记录数量检查（N06）",
+    "error": null,
+    "trace": "模型提取的查询参数： {\"game_loop\":4800}\n补齐后的问题 本次查询game_loop=4800，查询对象为双方，指标为当前矿。\n请按上述已补齐的条件回答。用户原问题：4800采样点双方的矿分别是多少？\n查询结果\n{\n  \"game_loop\": 4800,\n  \"player1\": {\n    \"minerals_current\": 205,\n    \"vespene_current\": 16,\n    \"workers_active_count\": 34\n  },\n  \"player2\": {\n    \"minerals_current\": 250,\n    \"vespene_current\": 265,\n    \"workers_active_count\": 32\n  },\n  \"difference_player1_minus_player2\": {\n    \"minerals_current\": -45,\n    \"vespene_current\": -249,\n    \"workers_active_count\": 2\n  },\n  \"source\": \"organized_records.json，frame=4800，pid=1和2\"\n}\n检索说明\n[\n  {\n    \"id\": \"N06\",\n    \"title\": \"可查询的采样点\",\n    \"text\": \"本项目使用game_loop指定采样点，并与整理表的frame字段匹配。只有该采样点的玩家1和玩家2各有且仅有一条记录时，查询才返回结果。任意一方记录缺失或重复时会报错。\",\n    \"source\": \"src/tools.py，get_stats函数中的frame匹配与记录数量检查\",\n    \"score\": 0.7132643461227417\n  },\n  {\n    \"id\": \"N01\",\n    \"title\": \"当前矿\",\n    \"text\": \"minerals_current表示统计事件发生时玩家当前持有的矿资源数量，回答当前矿或矿量问题时使用这个字段。\",\n    \"source\": \"https://github.com/ggtracker/sc2reader/blob/upstream/sc2reader/events/tracker.py#L73-L74\",\n    \"score\": 0.6198696494102478\n  }\n]\n",
+    "seconds": 2.92
+  },
+  {
+    "question": "另一方呢？",
+    "session": {
+      "game_loop": 4800,
+      "pid": "both",
+      "metric": [
+        "minerals_current"
+      ]
+    },
+    "answer": null,
+    "error": "请先明确一名玩家，才能确定另一方。",
+    "trace": "模型提取的查询参数： {\"game_loop\":null}\n",
+    "seconds": 0.39
+  },
+  {
+    "question": "clear后：那气呢？",
+    "session": {
+      "game_loop": null,
+      "pid": null,
+      "metric": null
+    },
+    "error": "请先提供采样点编号，例如1920。"
+  }
+]

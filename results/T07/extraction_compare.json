@@ -1,0 +1,186 @@
+{
+  "before": [
+    {
+      "question": "1920采样点双方当前矿分别是多少，谁更多，多多少？",
+      "expected": 1920,
+      "actual": null,
+      "error": null,
+      "passed": false,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.6
+    },
+    {
+      "question": "4800采样点双方有多少矿？",
+      "expected": 4800,
+      "actual": null,
+      "error": null,
+      "passed": false,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.36
+    },
+    {
+      "question": "查询采样点7680双方的气。",
+      "expected": 7680,
+      "actual": null,
+      "error": null,
+      "passed": false,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.35
+    },
+    {
+      "question": "game_loop=1920时，双方活跃工人数是多少？",
+      "expected": 1920,
+      "actual": null,
+      "error": null,
+      "passed": false,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.34
+    },
+    {
+      "question": "在第4800帧，双方当前矿分别是多少？",
+      "expected": 4800,
+      "actual": null,
+      "error": null,
+      "passed": false,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.35
+    },
+    {
+      "question": "那气呢？",
+      "expected": null,
+      "actual": null,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.37
+    },
+    {
+      "question": "玩家1有多少矿？",
+      "expected": null,
+      "actual": null,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.35
+    },
+    {
+      "question": "第2分钟双方有多少矿？",
+      "expected": null,
+      "actual": null,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.34
+    }
+  ],
+  "after": [
+    {
+      "question": "1920采样点双方当前矿分别是多少，谁更多，多多少？",
+      "expected": 1920,
+      "actual": 1920,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":1920}",
+      "seconds": 0.83
+    },
+    {
+      "question": "4800采样点双方有多少矿？",
+      "expected": 4800,
+      "actual": 4800,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":4800}",
+      "seconds": 0.51
+    },
+    {
+      "question": "查询采样点7680双方的气。",
+      "expected": 7680,
+      "actual": 7680,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":7680}",
+      "seconds": 0.5
+    },
+    {
+      "question": "game_loop=1920时，双方活跃工人数是多少？",
+      "expected": 1920,
+      "actual": 1920,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":1920}",
+      "seconds": 0.52
+    },
+    {
+      "question": "在第4800帧，双方当前矿分别是多少？",
+      "expected": 4800,
+      "actual": 4800,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":4800}",
+      "seconds": 0.52
+    },
+    {
+      "question": "那气呢？",
+      "expected": null,
+      "actual": null,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.36
+    },
+    {
+      "question": "玩家1有多少矿？",
+      "expected": null,
+      "actual": null,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.36
+    },
+    {
+      "question": "第2分钟双方有多少矿？",
+      "expected": null,
+      "actual": null,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.38
+    },
+    {
+      "question": "查询采样点8192双方的矿。",
+      "expected": 8192,
+      "actual": 8192,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":8192}",
+      "seconds": 0.53
+    },
+    {
+      "question": "第12345帧双方有多少气？",
+      "expected": 12345,
+      "actual": 12345,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":12345}",
+      "seconds": 0.59
+    },
+    {
+      "question": "1920时刻双方的矿呢？",
+      "expected": 1920,
+      "actual": 1920,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":1920}",
+      "seconds": 0.54
+    },
+    {
+      "question": "3分20秒双方有多少矿？",
+      "expected": null,
+      "actual": null,
+      "error": null,
+      "passed": true,
+      "response": "模型提取的查询参数： {\"game_loop\":null}",
+      "seconds": 0.39
+    }
+  ]
+}

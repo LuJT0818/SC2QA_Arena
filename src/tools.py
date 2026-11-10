@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+from answer import generate_answer
 from model_client import ask
 
 
@@ -47,32 +48,31 @@ def get_stats(game_loop):
         "source": f"{DATA_FILE.name}，frame={game_loop}，pid=1和2",
     }
 
-def generate_answer(question, stats=None, notes=None):
-    # 数值问答、说明问答和混合问答共用这份回答模板。
-    prompt_file = DATA_FILE.parent.parent.parent / "prompts/answer.txt"
-    rules = prompt_file.read_text(encoding="utf-8")
-    data_text = json.dumps(stats, ensure_ascii=False, indent=2)
-    notes_text = json.dumps(notes, ensure_ascii=False, indent=2)
-    prompt = (
-        f"{rules}\n\n问题：{question}\n"
-        f"本次统计数据：\n{data_text}\n\n参考说明：\n{notes_text}"
-    )
-    return ask(prompt)
-
-
 def answer_stats(question, game_loop):
     result = get_stats(game_loop)
     print("查询结果：", json.dumps(result, ensure_ascii=False))
     return generate_answer(question, stats=result)
 
 
-def extract_game_loop(question):
+def extract_game_loop(question, allow_missing=False):
     # 1. 第一次调用模型，让它提取采样点编号。
     prompt = (
-        "请从用户问题中提取采样点编号game_loop，只输出一个JSON对象，不要解释或使用代码块。\n"
-        '输出格式：{"game_loop":xxxx}，其中xxxx仅为格式示例，请使用用户指定的编号。\n'
-        "只提取用户明确给出的采样点编号。\n"
-        f"用户问题：{question}"
+        "任务：从最后的用户问题中原样提取采样点编号，填入game_loop。\n"
+        "采样点编号可以写成“1920采样点”“采样点1920”“game_loop=1920”或“第1920帧”。\n"
+        "出现明确编号时，输出该整数，不检查这个编号是否有数据。\n"
+        "仅当没有明确编号时输出null。玩家编号、分钟和秒不属于采样点编号，不进行时间换算。\n"
+        "只输出一个合法JSON对象，不输出解释或代码块。\n\n"
+        "示例一\n问题：4800采样点双方有多少矿？\n"
+        '输出：{"game_loop":4800}\n'
+        "示例二\n问题：查询采样点7680的气。\n"
+        '输出：{"game_loop":7680}\n'
+        "示例三\n问题：game_loop=3200时的数据是多少？\n"
+        '输出：{"game_loop":3200}\n'
+        "示例四\n问题：玩家1有多少矿？\n"
+        '输出：{"game_loop":null}\n'
+        "示例五\n问题：那气呢？\n"
+        '输出：{"game_loop":null}\n\n'
+        f"用户问题：{question}\n输出："
     )
     request_text = ask(prompt)
     print("模型提取的查询参数：", request_text)
@@ -83,10 +83,12 @@ def extract_game_loop(question):
     except json.JSONDecodeError as error:
         raise ValueError("模型返回的查询请求不是有效JSON。") from error
 
-    if not isinstance(request, dict):
+    if not isinstance(request, dict) or "game_loop" not in request:
         raise ValueError("模型需要返回包含game_loop的JSON对象。")
 
     game_loop = request.get("game_loop")
+    if game_loop is None and allow_missing:
+        return None
     if type(game_loop) is not int or game_loop < 0:
         raise ValueError("请在问题中明确指定采样点编号，例如1920。")
 
@@ -98,10 +100,3 @@ def answer_question(question):
     return answer_stats(question, game_loop)
 
 
-if __name__ == "__main__":
-    question = "1920采样点双方当前矿分别是多少，谁更多，多多少？"
-    try:
-        answer = answer_question(question)
-        print("最终回答：", answer)
-    except ValueError as error:
-        print("查询失败：", error)

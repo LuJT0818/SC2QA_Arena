@@ -8,7 +8,6 @@ def ask(prompt: str, max_new_tokens: int = 256) -> str:
         json={"prompt": prompt, "max_new_tokens": max_new_tokens},
         timeout=1000,
     )
-    print(response.json())
     # 如果服务端返回错误状态，抛出异常，便于定位问题。
     response.raise_for_status()
     return response.json()["answer"]

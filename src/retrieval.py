@@ -4,7 +4,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from build_index import MODEL_NAME, NOTES_FILE, ROOT, VECTORS_FILE
-from tools import generate_answer
+from answer import generate_answer
 
 
 def retrieve(question, top_k=2):
@@ -63,8 +63,3 @@ def answer_with_notes(question):
     return generate_answer(question, notes=passages)
 
 
-if __name__ == "__main__":
-    question = "双方差值是怎么算的？"
-    answer = answer_with_notes(question)
-    print("最终回答")
-    print(answer)
