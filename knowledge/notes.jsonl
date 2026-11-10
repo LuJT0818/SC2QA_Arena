@@ -1,0 +1,6 @@
+{"id":"N01","title":"当前矿","text":"minerals_current表示统计事件发生时玩家当前持有的矿资源数量，回答当前矿或矿量问题时使用这个字段。","source":"https://github.com/ggtracker/sc2reader/blob/upstream/sc2reader/events/tracker.py#L73-L74"}
+{"id":"N02","title":"当前气","text":"vespene_current表示统计事件发生时玩家当前持有的高能瓦斯资源数量，回答当前气或气量问题时使用这个字段。","source":"https://github.com/ggtracker/sc2reader/blob/upstream/sc2reader/events/tracker.py#L76-L77"}
+{"id":"N03","title":"活跃工人数","text":"workers_active_count表示统计事件发生时玩家的活跃工人数。本项目按活跃工人数解释该字段，不将其直接解释为正在采矿的工人数。","source":"https://github.com/ggtracker/sc2reader/blob/upstream/sc2reader/events/tracker.py#L84-L85；SC2回放问答与模型对比系统_任务书.docx，T01字段解释约定"}
+{"id":"N04","title":"双方差值的方向","text":"本项目的差值统一按玩家1减玩家2计算。差值为正表示玩家1更多，为负表示玩家2更多，为零表示双方相同。","source":"src/tools.py，get_stats函数中的difference计算逻辑"}
+{"id":"N05","title":"缺失数据的处理","text":"统计字段缺失时保留为null。任意一方某项数据缺失时，该项差值也为null，回答应说明数据不足。数值0是有效数据，可以参与差值计算。","source":"src/tools.py，get_stats函数中的字段读取与缺失值处理逻辑"}
+{"id":"N06","title":"可查询的采样点","text":"本项目使用game_loop指定采样点，并与整理表的frame字段匹配。只有该采样点的玩家1和玩家2各有且仅有一条记录时，查询才返回结果。任意一方记录缺失或重复时会报错。","source":"src/tools.py，get_stats函数中的frame匹配与记录数量检查"}
